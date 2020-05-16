@@ -2,6 +2,8 @@
 
 set -e
 
+echo "* About to set up the gitpod area"
+
 export PATH=/home/gitpod/.composer/vendor/bin/:$PATH
 
 joomla plugin:install joomlatools/console-joomlatools:dev-master
