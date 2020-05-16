@@ -13,7 +13,7 @@ tasks:
   - name: Terminal
     command: |
       clear
-      /workspace/joomlatools-gitpod/.gitpod/bootstrap.sh
+      $GITPOD_REPO_ROOT/.gitpod/bootstrap.sh
       echo ""
       echo "Commands you can try:"
       echo " * apachectl stop"
