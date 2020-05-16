@@ -1,0 +1,24 @@
+image:
+  file: .gitpod/Dockerfile
+  context: .gitpod
+ports:
+  - port: 8080
+  - port: 3306
+    onOpen: ignore
+tasks:
+  - name: Apache
+    command: |
+      apachectl start
+      multitail /var/log/apache2/access.log -I /var/log/apache2/error.log
+  - name: Terminal
+    command: |
+      clear
+      /workspace/joomlatools-gitpod/.gitpod/bootstrap.sh
+      echo ""
+      echo "Commands you can try:"
+      echo " * apachectl stop"
+      echo " * apachectl start"
+      echo " * gp open /var/log/apache2/access.log"
+      echo " * gp open /var/log/apache2/error.log"
+      echo " * gp preview $(gp url 8080)"
+      echo " * sh .gitpod/mysql-restart.sh"
