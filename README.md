@@ -11,7 +11,6 @@ A super simple way to test out different versions Joomla, straight from the brow
 ## Installation
 
 1. Install the [Gitpod Chrome or Firefox](https://www.gitpod.io/docs/browser-extension/) extension and click the `Gitpod`button.
-
 2. Go to http://gitpod.io#https://github.com/joomlatools/joomlatools-gitpod
 
 ## Documentation
