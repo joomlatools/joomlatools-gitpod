@@ -6,7 +6,7 @@ A super simple way to test out different versions Joomla, straight from the brow
 
 ## Requirements
 
-* Browser
+* Chrome of Firefox
 
 ## Installation
 
