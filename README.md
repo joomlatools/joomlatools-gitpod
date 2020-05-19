@@ -15,7 +15,7 @@ A super simple way to test out different versions Joomla, straight from the brow
 
 ## Documentation
 
-You can find all the documentation for Gitpod IDEA here: https://www.gitpod.io/docs/ide/
+You can find all the documentation for Gitpod IDE (Theia) here: https://www.gitpod.io/docs/ide/
 
 ## Contributing
 
