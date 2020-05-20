@@ -24,9 +24,12 @@ elif [ -n "$repo" ]; then
   repostring="--repo=$repo"
 fi;
 
-joomla site:create ${APACHE_DOCROOT_IN_REPO} --disable-ssl --mysql-login=root: --www=$GITPOD_REPO_ROOT/ $release $repostring
+joomla site:download ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT/ $release $repostring
+joomla site:configure ${APACHE_DOCROOT_IN_REPO} --overwrite --mysql-login=root:
+
 
 if [ -n "$composer_require" ]; then
+
   echo "* Installing user defined composer requirements"
 
   composer require $composer_require --working-dir=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO} --ignore-platform-reqs
