@@ -15,12 +15,16 @@ joomla plugin:install joomlatools/console-joomlatools:dev-master
 echo "* Create a new Joomla site"
 
 release="--release=latest"
+repostring=""
 
 if [ -n "$joomla" ]; then
   release="--release=$joomla"
+elif [ -n "$repo" ]; then
+  release=""
+  repostring="--repo=$repo"
 fi;
 
-joomla site:create ${APACHE_DOCROOT_IN_REPO} --disable-ssl --mysql-login=root: --www=$GITPOD_REPO_ROOT/ $release
+joomla site:create ${APACHE_DOCROOT_IN_REPO} --disable-ssl --mysql-login=root: --www=$GITPOD_REPO_ROOT/ $release $repostring
 
 if [[ -e $GITPOD_REPO_ROOT/.gitpod/composer.json ]]; then
   echo "* Installing user defined composer requirements"
