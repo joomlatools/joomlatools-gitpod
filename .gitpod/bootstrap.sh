@@ -24,9 +24,11 @@ elif [ -n "$repo" ]; then
   repostring="--repo=$repo"
 fi;
 
-joomla site:download ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT/ $release $repostring
-joomla site:configure ${APACHE_DOCROOT_IN_REPO} --overwrite --mysql-login=root:
+joomla site:download ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT $release $repostring
 
+joomla site:configure ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --overwrite --mysql-login=root:
+
+joomla database:install  ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --drop --mysql-login=root:
 
 if [ -n "$composer_require" ]; then
 
