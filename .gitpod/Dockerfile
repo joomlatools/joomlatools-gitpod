@@ -3,7 +3,6 @@ FROM gitpod/workspace-mysql:latest
 ENV APACHE_DOCROOT_IN_REPO="joomla"
 ENV APACHE_RUN_USER="gitpod"
 ENV APACHE_RUN_GROUP="gitpod"
-ENV JOOMLA_VERSION="3.8.9"
 
 USER root
 
