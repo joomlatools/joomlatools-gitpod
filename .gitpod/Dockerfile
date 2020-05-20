@@ -11,7 +11,7 @@ USER root
 COPY apache.conf /etc/apache2/apache2.conf
 
 # Configure PHP
-COPY  yiendos.ini /etc/php/7.4/apache2/conf.d/yiendos.ini
+COPY  phplimits.ini /etc/php/7.4/apache2/conf.d/phplimits.ini
 
 # Install extra PHP extensions
 RUN apt-get update \
