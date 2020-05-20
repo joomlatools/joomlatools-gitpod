@@ -28,7 +28,11 @@ joomla site:download ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT $release 
 
 joomla site:configure ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --overwrite --mysql-login=root:
 
-joomla database:install  ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --drop --mysql-login=root:
+if [ -e "$GITPOD_REPO_ROOT/.gitpod/install.sql" ]; then
+  custom_install="--sql-dumps=$GITPOD_REPO_ROOT/.gitpod/install.sql";
+fi;
+
+joomla database:install  ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --drop --mysql-login=root: $custom_install
 
 if [ -n "$composer_require" ]; then
 
