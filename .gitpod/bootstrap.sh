@@ -4,7 +4,7 @@ set -e
 
 #@todo maybe want to secure this more https://wiki.bash-hackers.org/howto/conffile#secure_it
 #load up user predefine variables
-source $GITPOD_REPO_ROOT/config.sh
+source $GITPOD_REPO_ROOT/.gitpod/config.sh
 
 echo "* About to set up the gitpod area"
 
