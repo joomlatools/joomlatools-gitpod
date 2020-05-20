@@ -1,2 +1,3 @@
 #joomla=3.8.9
-repo=git@github.com:yiendos/testing.git
+#repo=https://github.com/yiendos/testing.git
+composer_require=joomlatools-framework joomlatools-pages

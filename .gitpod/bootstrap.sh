@@ -26,12 +26,10 @@ fi;
 
 joomla site:create ${APACHE_DOCROOT_IN_REPO} --disable-ssl --mysql-login=root: --www=$GITPOD_REPO_ROOT/ $release $repostring
 
-if [[ -e $GITPOD_REPO_ROOT/.gitpod/composer.json ]]; then
+if [ -n "$composer_require" ]; then
   echo "* Installing user defined composer requirements"
 
-  cp $GITPOD_REPO_ROOT/.gitpod/composer.json $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/composer.json
-
-  composer update --working-dir=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO} --ignore-platform-reqs
+  composer require $composer_require --working-dir=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO} --ignore-platform-reqs
 fi
 
 apachectl start
