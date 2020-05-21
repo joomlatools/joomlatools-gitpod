@@ -41,4 +41,7 @@ if [ -n "$composer" ]; then
   composer require $composer --working-dir=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO} --ignore-platform-reqs
 fi
 
+#Ensure that we can upgrade insecure requests via the apache conf
+ln -s /etc/apache2/mods-available/mod_headers.load /etc/apache2/mods-enabled/mod_headers.load
+
 apachectl start
