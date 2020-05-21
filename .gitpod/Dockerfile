@@ -27,6 +27,9 @@ RUN chown -R gitpod:gitpod /etc/apache2/
 RUN chown -R gitpod:gitpod /etc/mysql/
 RUN chown -R gitpod:gitpod 	/etc/php/7.4
 
+#Ensure that we can upgrade insecure requests via the apache conf
+ln -s /etc/apache2/mods-enabled/mod_headers.load /etc/apache2/mods-available/mod_headers.load
+
 USER gitpod
 
 # Install joomlatools/console
