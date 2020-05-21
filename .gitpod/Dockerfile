@@ -22,6 +22,7 @@ RUN chown -R gitpod:gitpod /var/www/
 RUN chown -R gitpod:gitpod /var/www/
 RUN chown -R gitpod:gitpod /etc/apache2/
 RUN chown -R gitpod:gitpod /etc/mysql/
+RUN chown -R gitpod:gitpod 	/etc/php/7.4
 
 USER gitpod
 
