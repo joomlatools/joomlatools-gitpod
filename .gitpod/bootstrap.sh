@@ -34,6 +34,14 @@ fi;
 
 joomla database:install  ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --drop --mysql-login=root: $custom_install
 
+if [ -d "$GITPOD_REPO_ROOT/joomla/web" ]; then
+  cp "$GITPOD_REPO_ROOT/.gitpod/platform_migrations.php" "$GITPOD_REPO_ROOT/joomla/install/mysql/migrations/v1.1.0/20200521123445_platform_migrations.php"
+
+  rm -Rf "$GITPOD_REPO_ROOT/joomla/install/mysql/migrations/v2.0.0/"
+
+  cd "$GITPOD_REPO_ROOT/joomla/" && php vendor/bin/phinx migrate;
+fi;
+
 if [ -n "$composer" ]; then
 
   echo "* Installing user defined composer requirements"
