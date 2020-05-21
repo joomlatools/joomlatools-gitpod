@@ -34,11 +34,11 @@ fi;
 
 joomla database:install  ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --drop --mysql-login=root: $custom_install
 
-if [ -n "$composer_require" ]; then
+if [ -n "$composer" ]; then
 
   echo "* Installing user defined composer requirements"
 
-  composer require $composer_require --working-dir=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO} --ignore-platform-reqs
+  composer require $composer --working-dir=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO} --ignore-platform-reqs
 fi
 
 apachectl start

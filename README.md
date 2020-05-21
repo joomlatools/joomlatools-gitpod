@@ -30,7 +30,7 @@ We've also made great efforts to make this repository configurable to your needs
 * By providing a `joomla` variable (valid version number), this specific version will be downloaded and installed. The default with no `joomla` variable means the latest Joomla! version will be installed 
 * By providing a `repo` variable you can even install custom Joomla! instance. The repo variable should point to an existing Joomla github repo and use the https protocol. 
 Further if you create `.gitpod/install.sql` dump you can even migrate a supporting database for this custom Joomla! site 
-* By providing a `composer_require` variable you can specify which composer packages you would like added to the default Joomla! site
+* By providing a `composer` variable you can specify which composer packages you would like added to the default Joomla! site
 
 ## Contributing
 
