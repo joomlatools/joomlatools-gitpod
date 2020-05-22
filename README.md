@@ -17,6 +17,21 @@ A super simple way to test out different versions Joomla, straight from the brow
 
 You can find all the documentation for Gitpod IDE (Theia) here: https://www.gitpod.io/docs/ide/
 
+## Forking 
+
+Please feel free to fork this repository, in the [normal manner](https://help.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository). 
+
+We've also made great efforts to make this repository configurable to your needs 
+
+## Configuring
+
+`.gitpod/config.sh` is where you are able to configure how this repository will operate.
+
+* By providing a `joomla` variable (valid version number), this specific version will be downloaded and installed. The default with no `joomla` variable means the latest Joomla! version will be installed 
+* By providing a `repo` variable you can even install custom Joomla! instance. The repo variable should point to an existing Joomla github repo and use the https protocol. 
+Further if you create `.gitpod/install.sql` dump you can even migrate a supporting database for this custom Joomla! site 
+* By providing a `composer` variable you can specify which composer packages you would like added to the default Joomla! site
+
 ## Contributing
 
 Joomlatools Pages is an open source, community-driven project. Contributions are welcome from everyone. 

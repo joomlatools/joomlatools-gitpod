@@ -3,7 +3,6 @@ FROM gitpod/workspace-mysql:latest
 ENV APACHE_DOCROOT_IN_REPO="joomla"
 ENV APACHE_RUN_USER="gitpod"
 ENV APACHE_RUN_GROUP="gitpod"
-ENV JOOMLA_VERSION="3.8.9"
 
 USER root
 
@@ -26,6 +25,7 @@ RUN chown -R gitpod:gitpod /var/www/
 RUN chown -R gitpod:gitpod /var/www/
 RUN chown -R gitpod:gitpod /etc/apache2/
 RUN chown -R gitpod:gitpod /etc/mysql/
+RUN chown -R gitpod:gitpod /etc/php/7.4
 
 USER gitpod
 
@@ -34,5 +34,3 @@ RUN composer global require joomlatools/console --no-interaction
 
 # Make sure PATH is always updated with PATH to Composer package binaries
 RUN echo 'export PATH=/home/gitpod/.composer/vendor/bin/:$PATH' >> ~/.bashrc
-
-RUN echo "hello world"
