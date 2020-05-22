@@ -35,6 +35,9 @@ fi;
 joomla database:install  ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --drop --mysql-login=root: $custom_install
 
 if [ -d "$GITPOD_REPO_ROOT/joomla/web" ]; then
+
+  echo "* Platform detected, proceed to configure"
+
   cp "$GITPOD_REPO_ROOT/.gitpod/platform_migrations.php" "$GITPOD_REPO_ROOT/joomla/install/mysql/migrations/v1.1.0/20200521123445_platform_migrations.php"
 
   rm -Rf "$GITPOD_REPO_ROOT/joomla/install/mysql/migrations/v2.0.0/"
@@ -48,7 +51,7 @@ if [ -n "$composer" ]; then
 
   echo "* Installing user defined composer requirements"
 
-  composer require $composer --working-dir=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO} --ignore-platform-reqs
+  composer require $composer --working-dir=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO} --ignore-platform-reqs > /dev/null
 fi
 
 #Ensure that we can upgrade insecure requests via the apache conf
