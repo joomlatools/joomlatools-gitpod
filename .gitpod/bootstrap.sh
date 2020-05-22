@@ -41,7 +41,7 @@ if [ -d "$GITPOD_REPO_ROOT/joomla/web" ]; then
 
   cd "$GITPOD_REPO_ROOT/joomla/" && php vendor/bin/phinx migrate;
 
-  sed -i 's/1/0/g' $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/config/environments/development.php > $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/config/environments/development.php
+  sed -i 's/1/0/g' $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/config/environments/development.php
 fi;
 
 if [ -n "$composer" ]; then
