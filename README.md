@@ -1,8 +1,18 @@
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/joomlatools/joomlatools-gitpod)
 # Joomlatools Gitpod
-A super simple way to test out different versions Joomla, straight from the browser.
 
-### What is Joomlatools Gitpod?
+### What is Joomlatools Gitpod
+
+Joomlatools Gitpod is a super simple way to test out different versions Joomla, straight from the browser.It offers a complete Integrated Development Environment and in this instance we have:
+
+- A online cloud source editor [Theia](https://theia-ide.org/)
+- A LAMP server (Linux, Apache, MySQL, PHP)
+- A preconfigured Joomla site
+- The actual IDE is provided by [Gitpod](https://www.gitpod.io/) we've just extended their great work to showcase Joomla.
+
+### Why Joomlatools Gitpod?
+
+Testing Joomla should be easy. Instead of going through the manual setups, cloning the Joomla repo, setting up a local or remote hosting environment, installing Joomla, etc, you just click a button to start a ready-to-code dev environment in your browser. You can now code, review, or just try out Joomla. Once you are done you simply close the tab.
 
 ## Requirements
 
