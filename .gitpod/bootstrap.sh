@@ -18,7 +18,7 @@ repostring=""
 
 if [ -n "$joomla_beta" ]; then
 
-  sh $GITPOD_REPO_ROOT/.gitpod/install_joomla_beta.sh;
+  $GITPOD_REPO_ROOT/.gitpod/install_joomla_beta.sh;
 
   exit 0;
 fi;

@@ -8,7 +8,7 @@ release="--release=$joomla_beta"
 
 echo "* Downloading Joomla "
 
-joomla site:download ${APACHE_DOCROOT_IN_REPO} --release=$joomla_beta;
+joomla site:download ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --release=$joomla_beta;
 
 rm -rf $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/administrator/templates/atum/css; rm -rf $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/templates/cassiopeia/css; rm -rf $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/media/; rm -rf $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/node_modules/; rm -rf $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/libraries/vendor/;rm -f $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/administrator/cache/autoload_psr4.php; rm -rf $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/installation/template/css;
 
@@ -18,8 +18,13 @@ composer install --working-dir=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/ --ig
 
 echo "* Installing database"
 
-joomla database:install ${APACHE_DOCROOT_IN_REPO} --sql-dumps=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/installation/sql/mysql/base.sql --sql-dumps=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/installation/sql/mysql/extensions.sql --sql-dumps=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/installation/sql/mysql/supports.sql --drop;
+joomla database:install ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --mysql-login=root: --sql-dumps=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/installation/sql/mysql/base.sql --sql-dumps=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/installation/sql/mysql/extensions.sql --sql-dumps=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/installation/sql/mysql/supports.sql --drop;
 
 echo "* Configuring site"
 
-joomla site:configure ${APACHE_DOCROOT_IN_REPO};
+joomla site:configure ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --mysql-login=root:;
+
+#Ensure that we can upgrade insecure requests via the apache conf
+ln -s /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
+
+apachectl start
