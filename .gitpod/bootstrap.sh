@@ -65,6 +65,8 @@ if [ -n "$composer" ]; then
 fi
 
 #Ensure that we can upgrade insecure requests via the apache conf
-ln -s /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
+if [ ! -e "/etc/apache2/mods-enabled/headers.load" ]; then
+  ln -s /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
+fi;
 
 apachectl start
