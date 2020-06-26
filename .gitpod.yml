@@ -22,3 +22,5 @@ tasks:
       echo " * gp open /var/log/apache2/error.log"
       echo " * gp preview $(gp url 8080)"
       echo " * sh .gitpod/mysql-restart.sh"
+      echo " * joomla site:delete ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --mysql-login=root:;
+      echo " * $GITPOD_REPO_ROOT/.gitpod/bootstrap.sh

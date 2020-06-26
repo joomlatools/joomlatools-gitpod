@@ -2,6 +2,10 @@
 
 set -e
 
+if [ -e "$GITPOD_REPO_ROOT/$APACHE_DOCROOT_IN_REPO" ]; then
+    exit 0;
+fi;
+
 #load up user predefine variables
 source $GITPOD_REPO_ROOT/.gitpod/config.sh
 
