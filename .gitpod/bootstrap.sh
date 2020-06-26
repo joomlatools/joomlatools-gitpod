@@ -16,6 +16,13 @@ echo "* Create a new Joomla site"
 release="--release=latest"
 repostring=""
 
+if [ -n "$joomla_beta" ]; then
+
+  sh $GITPOD_REPO_ROOT/.gitpod/install_joomla_beta.sh;
+
+  exit 0;
+fi;
+
 if [ -n "$joomla" ]; then
   release="--release=$joomla"
 elif [ -n "$repo" ]; then
