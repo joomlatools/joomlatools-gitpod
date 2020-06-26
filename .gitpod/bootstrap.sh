@@ -2,6 +2,10 @@
 
 set -e
 
+if [ -e "$GITPOD_REPO_ROOT/$APACHE_DOCROOT_IN_REPO" ]; then
+    exit 0;
+fi;
+
 #load up user predefine variables
 source $GITPOD_REPO_ROOT/.gitpod/config.sh
 
@@ -15,6 +19,13 @@ echo "* Create a new Joomla site"
 
 release="--release=latest"
 repostring=""
+
+if [ -n "$joomla_beta" ]; then
+
+  $GITPOD_REPO_ROOT/.gitpod/install_joomla_beta.sh;
+
+  exit 0;
+fi;
 
 if [ -n "$joomla" ]; then
   release="--release=$joomla"
@@ -54,6 +65,8 @@ if [ -n "$composer" ]; then
 fi
 
 #Ensure that we can upgrade insecure requests via the apache conf
-ln -s /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
+if [ ! -e "/etc/apache2/mods-enabled/headers.load" ]; then
+  ln -s /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
+fi;
 
 apachectl start
