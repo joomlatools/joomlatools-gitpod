@@ -18,7 +18,7 @@ composer install --working-dir=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/ --ig
 
 echo "* Installing database"
 
-joomla database:install ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --mysql-login=root: --sql-dumps=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/installation/sql/mysql/base.sql --sql-dumps=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/installation/sql/mysql/extensions.sql --sql-dumps=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/installation/sql/mysql/supports.sql --drop;
+joomla database:install ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --mysql-login=root: --sql-dumps=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/installation/sql/mysql/base.sql --sql-dumps=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/installation/sql/mysql/extensions.sql --sql-dumps=$GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/installation/sql/mysql/supports.sql --sql-dumps=$GITPOD_REPO_ROOT/.gitpod/joomla_beta_users.sql --drop;
 
 echo "* Configuring site"
 
