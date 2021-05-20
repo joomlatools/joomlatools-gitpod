@@ -34,6 +34,8 @@ elif [ -n "$repo" ]; then
   repostring="--repo=$repo"
 fi;
 
+sleep 20
+
 joomla site:download ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT $release $repostring
 
 joomla site:configure ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --overwrite --mysql-login=root:
