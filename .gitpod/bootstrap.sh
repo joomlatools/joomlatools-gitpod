@@ -34,8 +34,6 @@ elif [ -n "$repo" ]; then
   repostring="--repo=$repo"
 fi;
 
-sleep 20
-
 joomla site:download ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT $release $repostring
 
 joomla site:configure ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --overwrite --mysql-login=root:
@@ -43,6 +41,11 @@ joomla site:configure ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --overwr
 if [ -e "$GITPOD_REPO_ROOT/.gitpod/install.sql" ]; then
   custom_install="--sql-dumps=$GITPOD_REPO_ROOT/.gitpod/install.sql";
 fi;
+
+#wait for the database to ready
+while ! mysqladmin ping -h"$DB_HOST" --silent; do
+    sleep 1
+done
 
 joomla database:install  ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --drop --mysql-login=root: $custom_install
 
