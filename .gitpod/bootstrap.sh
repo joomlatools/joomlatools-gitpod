@@ -43,7 +43,7 @@ if [ -e "$GITPOD_REPO_ROOT/.gitpod/install.sql" ]; then
 fi;
 
 #wait for the database to ready
-while ! mysqladmin ping -h"$DB_HOST" --silent; do
+while ! mysqladmin ping --silent; do
     sleep 1
 done
 
