@@ -42,6 +42,11 @@ if [ -e "$GITPOD_REPO_ROOT/.gitpod/install.sql" ]; then
   custom_install="--sql-dumps=$GITPOD_REPO_ROOT/.gitpod/install.sql";
 fi;
 
+#wait for the database to ready
+while ! mysqladmin ping --silent; do
+    sleep 1
+done
+
 joomla database:install  ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --drop --mysql-login=root: $custom_install
 
 if [ -d "$GITPOD_REPO_ROOT/joomla/web" ]; then
