@@ -125,7 +125,7 @@ Nous avons aussi fait des efforts importants pour rendre ce dépot configurable 
 De plus, si vous créer un fichier `.gitpod/install.sql` vous pouvez même migrer une base de donnée supportée pour cette instance personnalisée de Joomla! 
 * En définissant la variable `composer` vous pouvez definir quels packages composer vous voulez installer sur le site Joomla! par défaut.
 
-Pour les instructions spécifiques à Joomla! 4 beta [veuillez vous référer au wiki.](https://github.com/alexandreelise/joomlatools-gitpod/wiki)
+Pour les instructions spécifiques à Joomla! 4 beta [veuillez vous référer au wiki.](https://github.com/joomlatools/joomlatools-gitpod/wiki)
 
 ## Contribution
 
