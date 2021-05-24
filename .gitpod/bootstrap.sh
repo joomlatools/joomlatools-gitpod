@@ -37,7 +37,7 @@ fi;
 joomla site:download ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT $release $repostring
 
 #getting rate limits for joomla/backports/less-php use a modified composer.json
-cp $GITPOD_REPO_ROOT/.gitpod/config/composer.json $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/composer.json
+cp $GITPOD_REPO_ROOT/.gitpod/composer.json $GITPOD_REPO_ROOT/${APACHE_DOCROOT_IN_REPO}/composer.json
 
 
 joomla site:configure ${APACHE_DOCROOT_IN_REPO} --www=$GITPOD_REPO_ROOT --overwrite --mysql-login=root:
